@@ -7,7 +7,7 @@
 (require 'cl)
 
 ;;add whatever packages you want here
-(defvar zilongshanren/packages '(
+(defvar sswanv/packages '(
 				   company
 				   monokai-theme
 				   hungry-delete
@@ -16,20 +16,21 @@
 				   smartparens
 				   js2-mode
 				   nodejs-repl
+				   popwin
 				   ;; exec-path-from-shell
 				   )  "Default packages")
 
-(setq package-selected-packages 'zilongshanren/packages)
+(setq package-selected-packages 'sswanv/packages)
 
-(defun zilongshanren/packages-installed-p ()
-  (loop for pkg in zilongshanren/packages
+(defun sswanv/packages-installed-p ()
+  (loop for pkg in sswanv/packages
         when (not (package-installed-p pkg)) do (return nil)
 	finally (return t)))
 
-(unless (zilongshanren/packages-installed-p)
+(unless (sswanv/packages-installed-p)
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
-  (dolist (pkg zilongshanren/packages)
+  (dolist (pkg sswanv/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
