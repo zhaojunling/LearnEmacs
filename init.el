@@ -51,6 +51,7 @@
 ;; (setq-default cursor-type 'bar)
 
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (require 'org)
 (setq org-src-fontify-natively t)
@@ -99,6 +100,8 @@
 
 (setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+(global-auto-revert-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
