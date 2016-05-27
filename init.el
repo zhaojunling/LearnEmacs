@@ -1,38 +1,8 @@
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  )
-(require 'cl)
+(add-to-list 'load-path "/home/xuelian/.emacs.d/lisp")
 
-;;add whatever packages you want here
-(defvar sswanv/packages '(
-				   company
-				   monokai-theme
-				   hungry-delete
-				   swiper
-				   counsel
-				   smartparens
-				   js2-mode
-				   nodejs-repl
-				   popwin
-				   ;; exec-path-from-shell
-				   )  "Default packages")
+(require 'init-packages)
 
-(setq package-selected-packages 'sswanv/packages)
-
-(defun sswanv/packages-installed-p ()
-  (loop for pkg in sswanv/packages
-        when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (sswanv/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg sswanv/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
 
 (tool-bar-mode -1)
 ;; (menu-bar-mode -1)
@@ -46,8 +16,6 @@
   (find-file "~/.emacs.d/init.el"))
 
 (global-set-key (kbd "<f2>") 'open-my-init-file)
-
-(global-company-mode t)
 
 ;; (setq-default cursor-type 'bar)
 
@@ -69,13 +37,6 @@
 
 (global-hl-line-mode t)
 
-(load-theme 'monokai t)
-
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
@@ -83,15 +44,6 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-
-(require 'smartparens-config)
-;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(smartparens-global-mode)
-
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
 
 (require 'nodejs-repl)
 
@@ -103,6 +55,14 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 (global-auto-revert-mode t)
+
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("8ss" "sswanv")
+					    ("8email" "sswanv@gamil.com")
+					    ))
+
+(setq ring-bell-function 'ignore)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
