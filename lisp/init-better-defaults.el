@@ -2,6 +2,7 @@
 (setq ring-bell-function 'ignore)
 
 (global-linum-mode t)
+;; (add-hook 'emacs-lisp-mode-hook 'linum-mode)
 
 (global-auto-revert-mode t)
 
