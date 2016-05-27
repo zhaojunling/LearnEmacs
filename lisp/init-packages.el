@@ -1,7 +1,5 @@
 
 (when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   )
 (require 'cl)
@@ -34,10 +32,8 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
-(require 'hungry-delete)
 (global-hungry-delete-mode)
 
-(require 'smartparens-config)
 (smartparens-global-mode)
 
 (ivy-mode 1)
