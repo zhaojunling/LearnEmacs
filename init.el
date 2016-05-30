@@ -1,7 +1,7 @@
 
 (package-initialize)
 
-(add-to-list 'load-path "/home/xuelian/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (defun open-my-init-file ()
   (interactive)
