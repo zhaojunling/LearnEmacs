@@ -20,6 +20,7 @@
 			  expand-region
 			  iedit
 			  org-pomodoro
+			  helm-ag
 			  )  "Default packages")
 
 (setq package-selected-packages 'sswanv/packages)
@@ -88,6 +89,8 @@
 
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-m")
+
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
 (require 'org-pomodoro)
 
