@@ -1,6 +1,6 @@
 
 (when (>= emacs-major-version 24)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "http://elpa.popkit.org/packages/") t)
   )
 (require 'cl)
 
@@ -21,6 +21,8 @@
 			  iedit
 			  org-pomodoro
 			  helm-ag
+			  flycheck
+			  auto-yasnippet
 			  )  "Default packages")
 
 (setq package-selected-packages 'sswanv/packages)
@@ -94,6 +96,10 @@
 
 (require 'org-pomodoro)
 
+(add-hook 'js2-mode-hook 'flycheck-mode)
+
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 
 (provide 'init-packages)
