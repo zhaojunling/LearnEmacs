@@ -1,6 +1,7 @@
 
 (delete-selection-mode t)
 
+(ivy-mode 1)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
