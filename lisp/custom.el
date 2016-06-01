@@ -5,6 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-minimum-prefix-length 1)
+ '(evil-leader/leader "SPC")
  '(org-pomodoro-length 40))
 
 (custom-set-faces

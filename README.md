@@ -1,1 +1,1 @@
-MyEmacs
+'MyEmacs'

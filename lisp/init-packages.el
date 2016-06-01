@@ -23,6 +23,18 @@
 			  helm-ag
 			  flycheck
 			  auto-yasnippet
+			  evil
+			  evil-leader
+			  undo-tree
+			  goto-chg
+			  window-numbering
+			  lua-mode
+			  evil-surround
+			  evil-nerd-commenter
+			  powerline-evil
+			  which-key
+			  mwe-log-commands
+			  pallet
 			  )  "Default packages")
 
 (setq package-selected-packages 'sswanv/packages)
@@ -101,5 +113,33 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+(evil-mode 1)
+(global-evil-leader-mode)
+(evil-leader/set-key
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "bk" 'kill-buffer
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
+  "0" 'select-window-0
+  "1" 'select-window-1
+  "2" 'select-window-2
+  "3" 'select-window-3
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  ":" 'counsel-M-x
+  "wm" 'delete-other-windows
+  )
+
+(window-numbering-mode)
+
+
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
+(require 'powerline-evil)
+
+(which-key-mode)
 
 (provide 'init-packages)
